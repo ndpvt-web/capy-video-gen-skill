@@ -57,24 +57,25 @@ The baseline was brutal: only 1 out of 20 frames passed face verification. The f
 
 ## How It Works
 
-```
-Script/Idea --> [Character Extraction] --> [Portrait Generation] --> [Storyboard Design]
-                                                                          |
-                                                                          v
-Final Video <-- [Assembly] <-- [Video Generation] <-- [Frame Generation] <-- [Reference Selection]
-```
+<p align="center">
+  <img src="assets/pipeline.png" alt="Capy Video Gen Skill - 7-Stage Pipeline Architecture" width="100%">
+</p>
 
-**7-stage pipeline:**
+**Two entry points** feed into a **7-stage pipeline** that preserves face identity across every shot:
 
-1. **Character extraction** -- Parse characters from the script with detailed physical descriptions
-2. **Portrait generation** -- Generate front, side, and back portraits for each character
-3. **Storyboard design** -- Break the script into shot-by-shot plans with frame and motion descriptions
-4. **Reference image selection** -- Pick the best reference images per shot (face identity is the #1 priority)
-5. **Frame generation** -- Generate key frames using Gemini image gen with character portraits as references
-6. **Video generation** -- Produce video clips from frames using Veo or Sora
-7. **Assembly** -- Concatenate clips into the final video
+| Stage | Name | What It Does | Technology |
+|:-----:|------|-------------|------------|
+| 1 | **Character Extraction** | Parse characters from the script with detailed physical descriptions | LLM Agent |
+| 2 | **Portrait Generation** | Generate front, side, and back reference portraits per character | Gemini Image Gen |
+| 3 | **Storyboard Design** | Break script into shot-by-shot plans with frame and motion descriptions | LLM (GPT-4.1) |
+| 4 | **Reference Selection** | Select best reference images per shot -- face identity is the #1 priority | Algorithmic |
+| 5 | **Key Frame Generation** | Generate identity-accurate first frame with portrait refs + face-lock prompt | Gemini Image Gen |
+| 6 | **Video Generation** | Produce video clips anchored to the first frame | Veo 3.1 / Sora 2 |
+| 7 | **Assembly** | Concatenate clips into the final video | FFmpeg |
 
-Two entry points:
+> **Key innovation:** The two-stage image-then-video approach (Stage 5 + 6) locks face identity by generating an accurate first frame with Gemini, then anchoring video generation to that frame. This reduced face distance from **0.740 to 0.221** and raised verification from **5% to 100%**.
+
+**Entry points:**
 - **Script-to-Video** -- Input a formatted screenplay, get a video
 - **Idea-to-Video** -- Input a brief idea (1-3 paragraphs), an LLM screenwriter agent writes the script first
 
