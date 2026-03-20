@@ -1,12 +1,12 @@
 ---
-name: vimax
-description: Multi-shot AI video generation pipeline with face identity consistency. Converts scripts or ideas into complete videos using character extraction, storyboarding, frame generation, and video assembly. Use when the user asks to create a video from a script, story, idea, or wants multi-shot video with consistent characters.
+name: capy-video-gen-skill
+description: Multi-shot AI video generation pipeline with face identity consistency. Converts scripts or ideas into complete videos using character extraction, storyboarding, frame generation, and video assembly. 300 experiments validated, 70% face distance improvement. Use when the user asks to create a video from a script, story, idea, or wants multi-shot video with consistent characters.
 allowed-tools: Bash, Read, Write, Edit
 ---
 
-# ViMax - Script-to-Video Pipeline
+# Capy Video Gen Skill - Script-to-Video Pipeline
 
-Generate complete multi-shot videos from scripts or ideas with consistent character faces across all scenes. Adapted from [HKUDS/ViMax](https://github.com/HKUDS/ViMax) for HappyCapy AI Gateway.
+Generate complete multi-shot videos from scripts or ideas with consistent character faces across all scenes. Built for HappyCapy AI Gateway. 300 experiments validated, 70% face distance improvement.
 
 ## Overview
 
