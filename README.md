@@ -3,28 +3,7 @@
 
 <div align="center">
 
-```
-        _______________
-       /               \
-      /  ___       ___  \
-     |  /   \     /   \  |
-     |  | o  |   | o  |  |
-     |  \___/     \___/  |
-      \    ___________   /
-       \  /  \     /  \ /
-        ||    \   /    ||
-        ||     \_/     ||
-        | \           / |
-        |  \_________/  |
-        \  |  VIDEO  |  /
-         \ |_________| /
-          \___________/
-         /   |     |   \
-        /    |     |    \
-       ~~~~~~|     |~~~~~~
-             ~~~~~~~
-       C A P Y - V I D E O
-```
+<img src="assets/mascot.png" alt="Capy Video Gen Skill Mascot" width="300">
 
 # Capy Video Gen Skill
 
@@ -112,8 +91,8 @@ Two entry points:
 ### Install
 
 ```bash
-git clone https://github.com/ndpvt-web/vimax-video-gen-skill.git
-cd vimax-video-gen-skill
+git clone https://github.com/ndpvt-web/capy-video-gen-skill.git
+cd capy-video-gen-skill
 uv sync
 ```
 
